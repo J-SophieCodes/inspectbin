@@ -1,0 +1,29 @@
+<p><h2><strong>Your InspectBin Endpoint: </strong><span class="text-info">[ {{id}} ]</span></h2></p>
+<h5 class="text-muted"><strong>Bin expires in: </strong>{{ttl}}</h5>
+
+{{#if requests}}
+  {{#each requests}}
+    <p><h1 style="text-align:center"><strong>-----</strong></h1></p>
+    <p><h4><strong class="text-success">Method: </strong>{{method}}</h4></p>
+    <p><h4><strong class="text-success">Time: </strong>{{time}}</h4></p>
+    <h4><strong class="text-success">Body: </strong></h4>
+      <ul class="list-group">
+        <li class="list-group-item">
+          {{#each body}}
+            <p="list-group-item"><strong>{{@key}}: </strong>{{this}}</p>
+          {{/each}}
+        </li>
+      </ul>
+    <h4><strong class="text-success">Headers: </strong></h4>
+    <ul class="list-group">
+      <li class="list-group-item">
+        {{#each headers}}
+          <p="list-group-item"><strong>{{@key}}: </strong>{{this}}</p>
+        {{/each}}
+      </li>
+    </ul>
+  {{/each}}
+  {{else}}
+  <p><h1 style="text-align:center"><strong>-----</strong></h1></p>
+  <h3>No requests yet</h3>
+{{/if}}
